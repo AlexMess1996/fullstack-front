@@ -1,14 +1,17 @@
-import './App.css';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Navbar from './layout/Navbar';
-import Home from './pages/Home';
+import React, { useState } from 'react';
+import Login from './pages/Login';
+import Welcome from './pages/Welcome';
 
 function App() {
+  const [fullName, setFullName] = useState('');
+
   return (
     <div className="App">
-      
-      <Navbar/>
-      <Home/>
+      {fullName ? (
+        <Welcome fullName={fullName} />
+      ) : (
+        <Login setFullName={setFullName} />
+      )}
     </div>
   );
 }
